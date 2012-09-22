@@ -287,8 +287,8 @@
 				// Organize file info.
 				$item['name']  = $info['filename'];
 				$item['lname'] = strtolower($info['filename']);
-				$item['ext']   = $info['extension'];
-				if ($info['extension'] == '')
+				$item['ext']   = (isset($info['extension']) ? $info['extension']:'');
+				if (isset($info['extension']) && $info['extension'] == '')
 					$item['ext'] = '.';
 				$item['bytes'] = $stat['size'];
 				$item['size']  = bytes_to_string($stat['size'], 2);
@@ -323,7 +323,7 @@
 				}
 				
 				// Add files to the file list...
-				if ($info['extension'] != '') {
+				if (isset($info['extension']) && $info['extension'] != '') {
 					array_push($file_list, $item);
 				}
 				// ...and folders to the folder list.
