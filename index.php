@@ -35,6 +35,7 @@
 	 * @var $vWidth			Width of the popup video player
 	 * @var $vHeight			Height of the popup video player
 	 */
+	$hide_dotfiles = True;
 	$ext_filter = array(
 		'php',
 		'php4',
@@ -321,6 +322,9 @@
 					{
 					$item['link'] = '<a href="' . $item['name'] . '.' . $item['ext'] . '">' . $item['name'] . '.' . $item['ext'] . '</a>';
 				}
+				
+				// Skip if you want to hide files that start with a .
+				if ($hide_dotfiles && $item['name'] == '') continue;
 				
 				// Add files to the file list...
 				if (isset($info['extension']) && $info['extension'] != '') {
