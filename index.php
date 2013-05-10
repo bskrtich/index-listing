@@ -599,7 +599,7 @@
 	</thead>
 	<tfoot>
 		<tr>
-			<td class="total"><?php if ($folder_list): ?>This folder has <?php echo count($file_list); ?> files totaling <?php echo $total_size['num']; ?> <?php echo $total_size['str']; ?> in size<?php endif; ?></td>
+			<td class="total" colspan="4"><?php if ($folder_list): ?>This folder has <?php echo count($file_list); ?> files totaling <?php echo $total_size['num']; ?> <?php echo $total_size['str']; ?> in size<?php endif; ?></td>
 		</tr>
 	</tfoot>
 	<tbody>
