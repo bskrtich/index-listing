@@ -511,19 +511,33 @@
 		color: #999;
 	}
 	table{
-		margin: 0 auto;
-		padding: 0;
+		padding: 10px;
 		width: 600px;
+		background: rgba(255,255,255,0.8);
+		border-radius: 20px;
+		margin: 25px auto;
+		/*border: 10px rgba(0,0,0,0.1) solid;*/
+		overflow: hidden;
+		box-shadow: 0px 0px 10px #000;
 	}
 	table td{
 		padding: 5px;
 	}
 	thead td{
-		padding-left: 0;
+		padding: 0px;
 		font-family: "Trebuchet MS";
 		font-size: 11pt;
 		font-weight: bold;
 	}
+	thead td div{
+		font-size: 1.2em;
+		background: rgba(0,0,0,0.1);
+		margin: -12px -12px 10px -12px;
+		padding: 10px;
+		border-bottom: 1px rgba(0,0,0,0.1) solid;
+	}
+	
+	
 	tbody td.name{
 		width: 99%;
 	}
@@ -594,14 +608,9 @@
 <table cellpadding="0" cellspacing="1">
 	<thead>
 		<tr>
-			<td colspan="4">Directory listing for <?php echo $this_folder; ?></td>
+			<td colspan="4"><div>Directory listing for <?php echo $this_folder; ?></div></td>
 		</tr>
 	</thead>
-	<tfoot>
-		<tr>
-			<td class="total" colspan="4"><?php if ($folder_list): ?>This folder has <?php echo count($file_list); ?> files totaling <?php echo $total_size['num']; ?> <?php echo $total_size['str']; ?> in size<?php endif; ?></td>
-		</tr>
-	</tfoot>
 	<tbody>
 <!-- folders -->
 <?php if ($folder_list): ?>
@@ -624,7 +633,12 @@
 <?php endforeach; ?>
 <?php endif; ?>
 <!-- /files -->
-	</tbody>                          
+	</tbody>    
+	<tfoot>
+		<tr>
+			<td class="total" colspan="4"><?php if ($folder_list): ?>This folder has <?php echo count($file_list); ?> files totaling <?php echo $total_size['num']; ?> <?php echo $total_size['str']; ?> in size<?php endif; ?></td>
+		</tr>
+	</tfoot>                      
 </table>
 </body>
 </html>
